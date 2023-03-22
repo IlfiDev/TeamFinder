@@ -8,6 +8,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.core.view.isVisible
+import androidx.navigation.fragment.findNavController
 import com.aswecan.teamfinder.databinding.FragmentLogInBinding
 
 class LogInFragment : Fragment() {
@@ -27,6 +28,10 @@ class LogInFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+
+        binding.backButtonLogIn.setOnClickListener{
+            findNavController().navigate(R.id.action_logInFragment_to_splashFragment)
+        }
 
         binding.emailLogInEdittext.addTextChangedListener(object: TextWatcher{
             override fun beforeTextChanged(p0: CharSequence?, p1: Int, p2: Int, p3: Int) {
